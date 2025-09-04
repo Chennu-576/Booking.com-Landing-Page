@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const hotelDeals = [
   {
-    img: "/all images/vijayawada.jpg",
+    img: "/all-images/vijayawada.jpg",
     name: "Collection O Anu Hospital Elur Road",
     location: "Vijayawāda, India",
     tag: "Genius",
@@ -16,7 +17,7 @@ const hotelDeals = [
     isDeal: false,
   },
   {
-    img: "/all images/vja.jpg",
+    img: "/all-images/vja.jpg",
     name: "Hotel Aerotel,Hyderabad",
     location: "Shamshabad, India",
     tag: "Genius",
@@ -27,7 +28,7 @@ const hotelDeals = [
     isDeal: false,
   },
   {
-    img: "/all images/hampi cafe.jpg",
+    img: "/all-images/hampi-cafe.jpg",
     name: "The Hampi Cafe",
     location: "Hampi, India",
     tag: null,
@@ -38,7 +39,7 @@ const hotelDeals = [
     isDeal: false,
   },
   {
-    img: "/all images/hotel grand.jpg",
+    img: "/all-images/hotel-grand.jpg",
     name: "Hotel Sri Ram Grand",
     location: "Vijayawāda, India",
     tag: "Genius",
@@ -50,18 +51,18 @@ const hotelDeals = [
     dealLabel: "Getaway Deal",
   },
   {
-    img: "/all images/Hyderabadi.jpg",
+    img: "/all-images/hyderabadi.jpg",
     name: "Hotel Aerotel,Hyderabad",
     location: "Shamshabad, India",
     tag: "Genius",
-    rating: { value: 8.7, label: "very Good", reviews: 99 },
+    rating: { value: 8.7, label: "Very Good", reviews: 99 },
     oldPrice: "₹ 8,963",
     newPrice: "₹ 5,874",
     nights: "2 nights",
     isDeal: false,
   },
   {
-    img: "/all images/hampi stay.jpg",
+    img: "/all-images/hampi-stay.jpg",
     name: "The Hampi Cafe",
     location: "Hampi, India",
     tag: null,
@@ -71,53 +72,52 @@ const hotelDeals = [
     nights: "2 nights",
     isDeal: false,
   },
-
 ];
+
 const homesGuestsLove = [
-    {
-    img: "/all images/poland.webp",
+  {
+    img: "/all-images/poland.webp",
     name: "Aparthotel Stare Miasto",
     location: "Old Town, Poland, Krakow",
     rating: { value: 8.8, label: "Excellent", reviews: 3281 },
     newPrice: " starting from ₹ 12,799",
-    },
-    {
-    img: "/all images/hungary.webp",
+  },
+  {
+    img: "/all-images/hungary.webp",
     name: "7Seasons Apartments Budapest",
     location: "06. Terézváros, Hungary, Budapest",
-    rating: { value: 8.7, label: "Excellent", reviews: 10927  },
+    rating: { value: 8.7, label: "Excellent", reviews: 10927 },
     newPrice: " starting from ₹ 14,943",
-    },
-    {
-    img: "/all images/croatia.webp",
+  },
+  {
+    img: "/all-images/croatia.webp",
     name: "Villa Domina",
     location: "Split City Center, Croatia, Split",
     rating: { value: 9.3, label: "Wonderful", reviews: 1386 },
     newPrice: " starting from ₹ 11,619",
-    },
-    {
-    img: "/all images/prague.webp",
+  },
+  {
+    img: "/all-images/prague.webp",
     name: "3 Epoques Apartments by Adrez",
     location: "Prague 1, Czech Republic, Prague",
     rating: { value: 8.6, label: "Excellent", reviews: 714 },
     newPrice: " starting from ₹ 11,012",
-    },
-    {
-    img: "/all images/madrid.webp",
+  },
+  {
+    img: "/all-images/madrid.webp",
     name: "Oriente Palace Apartments",
     location: "Madrid City Center, Spain, Madrid",
     rating: { value: 8.9, label: "Excellent", reviews: 3714 },
     newPrice: " starting from ₹ 14,012",
-    },
-    {
-    img: "/all images/brazil.webp",
+  },
+  {
+    img: "/all-images/brazil.webp",
     name: "Sugar Loft Apartments",
     location: "Santa Teresa, Brazil, Rio de Janeiro",
     rating: { value: 7.9, label: "Good", reviews: 700 },
     newPrice: " starting from ₹ 3,019",
-    },
-
-]
+  },
+];
 
 const itemsPerPage = 4;
 
@@ -128,16 +128,13 @@ export default function WeekendDeals() {
   const dealsTotalPages = Math.ceil(hotelDeals.length / itemsPerPage);
   const homesTotalPages = Math.ceil(homesGuestsLove.length / itemsPerPage);
 
-
   const showDealsPrev = () =>
     setDealsPageIdx((p) => (p - 1 + dealsTotalPages) % dealsTotalPages);
-
   const showDealsNext = () =>
     setDealsPageIdx((p) => (p + 1) % dealsTotalPages);
 
   const showHomesPrev = () =>
     setHomesPageIdx((p) => (p - 1 + homesTotalPages) % homesTotalPages);
-
   const showHomesNext = () =>
     setHomesPageIdx((p) => (p + 1) % homesTotalPages);
 
@@ -145,25 +142,23 @@ export default function WeekendDeals() {
     dealsPageIdx * itemsPerPage,
     dealsPageIdx * itemsPerPage + itemsPerPage
   );
-
   const homesToShow = homesGuestsLove.slice(
     homesPageIdx * itemsPerPage,
     homesPageIdx * itemsPerPage + itemsPerPage
   );
+
   const arrowBtnClasses =
     "absolute top-1/2 -translate-y-1/2 p-3 bg-white rounded-full shadow cursor-pointer z-20 select-none";
 
-
   return (
-     <div className="max-w-7xl mx-auto px-6 py-10 space-y-20">
-
+    <div className="max-w-7xl mx-auto px-6 py-10 space-y-20">
+      
       <section>
         <h2 className="text-2xl font-bold mb-1">Deals for the weekend</h2>
         <div className="mb-5 text-gray-600">
           Save on stays for September 5 - September 7
         </div>
         <div className="relative">
-        
           {dealsTotalPages > 1 && (
             <button
               onClick={showDealsPrev}
@@ -183,9 +178,11 @@ export default function WeekendDeals() {
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <div className="relative">
-                  <img
+                  <Image
                     src={hotel.img}
                     alt={hotel.name}
+                    width={288}
+                    height={176}
                     className="w-full h-44 object-cover"
                   />
                   <button className="absolute top-3 right-3 p-2 bg-white rounded-full shadow">
@@ -210,18 +207,28 @@ export default function WeekendDeals() {
                       {hotel.tag}
                     </span>
                   )}
-                  <div className="font-semibold mt-1 leading-tight">{hotel.name}</div>
-                  <div className="text-sm text-gray-600 mb-1">{hotel.location}</div>
+                  <div className="font-semibold mt-1 leading-tight">
+                    {hotel.name}
+                  </div>
+                  <div className="text-sm text-gray-600 mb-1">
+                    {hotel.location}
+                  </div>
                   <div className="flex items-center gap-2 text-xs mb-1">
                     <span
                       className={`${
-                        hotel.rating.value >= 8 ? "bg-blue-700" : "bg-blue-500"
+                        hotel.rating.value >= 8
+                          ? "bg-blue-700"
+                          : "bg-blue-500"
                       } text-white rounded px-2`}
                     >
                       {hotel.rating.value}
                     </span>
-                    <span className="text-gray-700">{hotel.rating.label}</span>
-                    <span className="text-gray-500">{hotel.rating.reviews} reviews</span>
+                    <span className="text-gray-700">
+                      {hotel.rating.label}
+                    </span>
+                    <span className="text-gray-500">
+                      {hotel.rating.reviews} reviews
+                    </span>
                   </div>
                   {hotel.isDeal && (
                     <span className="bg-green-600 text-white text-xs rounded px-2 py-1 mb-1 inline-block">
@@ -230,8 +237,12 @@ export default function WeekendDeals() {
                   )}
                   <div className="mt-2 flex items-end">
                     <span className="text-sm mr-2">{hotel.nights}</span>
-                    <span className="text-gray-400 text-base line-through mr-2">{hotel.oldPrice}</span>
-                    <span className="text-xl font-semibold text-gray-900">{hotel.newPrice}</span>
+                    <span className="text-gray-400 text-base line-through mr-2">
+                      {hotel.oldPrice}
+                    </span>
+                    <span className="text-xl font-semibold text-gray-900">
+                      {hotel.newPrice}
+                    </span>
                   </div>
                 </div>
               </motion.div>
@@ -249,6 +260,7 @@ export default function WeekendDeals() {
         </div>
       </section>
 
+    
       <section>
         <div className="flex justify-between items-center mb-2">
           <h2 className="text-2xl font-bold">Homes guests love</h2>
@@ -266,7 +278,7 @@ export default function WeekendDeals() {
               &#8592;
             </button>
           )}
-         
+
           <div className="flex space-x-6 overflow-hidden px-10">
             {homesToShow.map((home) => (
               <motion.div
@@ -276,9 +288,11 @@ export default function WeekendDeals() {
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 <div className="relative">
-                  <img
+                  <Image
                     src={home.img}
                     alt={home.name}
+                    width={288}
+                    height={176}
                     className="w-full h-44 object-cover"
                   />
                   <button className="absolute top-3 right-3 p-2 bg-white rounded-full shadow">
@@ -298,27 +312,37 @@ export default function WeekendDeals() {
                   </button>
                 </div>
                 <div className="p-4">
-                  <div className="font-semibold mt-1 leading-tight">{home.name}</div>
-                  <div className="text-sm text-gray-600 mb-1">{home.location}</div>
+                  <div className="font-semibold mt-1 leading-tight">
+                    {home.name}
+                  </div>
+                  <div className="text-sm text-gray-600 mb-1">
+                    {home.location}
+                  </div>
                   <div className="flex items-center gap-2 text-xs mb-1">
                     <span
                       className={`${
-                        home.rating.value >= 8 ? "bg-blue-700" : "bg-blue-500"
+                        home.rating.value >= 8
+                          ? "bg-blue-700"
+                          : "bg-blue-500"
                       } text-white rounded px-2`}
                     >
                       {home.rating.value}
                     </span>
                     <span className="text-gray-700">{home.rating.label}</span>
-                    <span className="text-gray-500">{home.rating.reviews} reviews</span>
+                    <span className="text-gray-500">
+                      {home.rating.reviews} reviews
+                    </span>
                   </div>
                   <div className="mt-2 flex items-end">
-                    <span className="text-xl font-semibold text-gray-900">{home.newPrice}</span>
+                    <span className="text-xl font-semibold text-gray-900">
+                      {home.newPrice}
+                    </span>
                   </div>
                 </div>
               </motion.div>
             ))}
           </div>
-         
+
           {homesTotalPages > 1 && (
             <button
               onClick={showHomesNext}
@@ -333,5 +357,3 @@ export default function WeekendDeals() {
     </div>
   );
 }
-  
-

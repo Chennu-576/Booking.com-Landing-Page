@@ -2,38 +2,36 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const propertyTypesAll = [
-  { name: "Hotels", img: "/all images/hotels.jpeg" },
-  { name: "Apartments", img: "/all images/apartments.jpeg" },
-  { name: "Resorts", img: "/all images/resorts.jpeg" },
-  { name: "Villas", img: "/all images/villas.jpeg" },
-  { name: "Cottages", img: "/all images/cottages.jpeg" },
-  { name: "glamping", img: "/all images/glamping.jpeg" },
-  { name: "Cabins", img: "/all images/cabins.jpeg" },
-  { name: "serviced apartments", img: "/all images/serviced apartments.jpeg" },
+  { name: "Hotels", img: "/all-images/hotels.jpeg" },
+  { name: "Apartments", img: "/all-images/apartments.jpeg" },
+  { name: "Resorts", img: "/all-images/resorts.jpeg" },
+  { name: "Villas", img: "/all-images/villas.jpeg" },
+  { name: "Cottages", img: "/all-images/cottages.jpeg" },
+  { name: "Glamping", img: "/all-images/glamping.jpeg" },
+  { name: "Cabins", img: "/all-images/cabins.jpeg" },
+  { name: "Serviced Apartments", img: "/all-images/serviced-apartments.jpeg" },
 ];
 
 const destinationsAll = [
-  { name: "New Delhi", img: "/new delhi.jpg", properties: 4637 },
+  { name: "New Delhi", img: "/new-delhi.jpg", properties: 4637 },
   { name: "Bangalore", img: "/banglore.jpg", properties: 3174 },
   { name: "Mumbai", img: "/mumbai.jpg", properties: 1996 },
   { name: "Chennai", img: "/chennai.jpg", properties: 1353 },
   { name: "Varanasi", img: "/varnasi.jpg", properties: 2324 },
-  { name: "Hyderabad", img: "/all images/hyderabad.jpg", properties: 1871 },
-  { name: "Pune", img: "/all images/pune.jpg", properties: 1200 },
-  { name: "Goa", img: "/all images/jaipur.jpg", properties: 1100 },
-  { name: "Guragron", img: "/all images/guragron.jpg", properties: 1200 },
-  { name: "Pondicherry", img: "/all images/pondicherry.jpg", properties: 1100 },
-  { name: "Mumbai", img: "/mumbai.jpg", properties: 1996 },
-  { name: "Chennai", img: "/chennai.jpg", properties: 1353 },
+  { name: "Hyderabad", img: "/all-images/hyderabad.jpg", properties: 1871 },
+  { name: "Pune", img: "/all-images/pune.jpg", properties: 1200 },
+  { name: "Old Goa", img: "/all-images/old-goa.jpg", properties: 1100 },
+  { name: "Guragron", img: "/all-images/guragron.jpg", properties: 1200 },
+  { name: "Pondicherry", img: "/all-images/pondicherry.jpg", properties: 1100 },
 ];
 
 const itemsPerPagePropertyType = 4;
 const itemsPerPageDestinations = 6;
 
-export default function propertySliders() {
-   
+export default function PropertySliders() {
   const [propertyTypePage, setPropertyTypePage] = useState(0);
   const [destinationPage, setDestinationPage] = useState(0);
 
@@ -44,25 +42,19 @@ export default function propertySliders() {
     destinationsAll.length / itemsPerPageDestinations
   );
 
-  const nextPropertyTypePage = () => {
+  const nextPropertyTypePage = () =>
     setPropertyTypePage((prev) => (prev + 1) % totalPropertyTypePages);
-  };
-
-  const prevPropertyTypePage = () => {
+  const prevPropertyTypePage = () =>
     setPropertyTypePage(
       (prev) => (prev - 1 + totalPropertyTypePages) % totalPropertyTypePages
     );
-  };
 
-  const nextDestinationPage = () => {
+  const nextDestinationPage = () =>
     setDestinationPage((prev) => (prev + 1) % totalDestinationPages);
-  };
-
-  const prevDestinationPage = () => {
+  const prevDestinationPage = () =>
     setDestinationPage(
       (prev) => (prev - 1 + totalDestinationPages) % totalDestinationPages
     );
-  };
 
   const currentPropertyTypes = propertyTypesAll.slice(
     propertyTypePage * itemsPerPagePropertyType,
@@ -79,8 +71,7 @@ export default function propertySliders() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8 space-y-20">
-
-    
+      {/* Property Types */}
       <section className="relative">
         <h2 className="text-2xl font-bold mb-4">Browse by property type</h2>
         <div className="flex space-x-6 overflow-hidden">
@@ -91,9 +82,11 @@ export default function propertySliders() {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <img
+              <Image
                 src={img}
                 alt={name}
+                width={288}
+                height={192}
                 className="w-full h-48 object-cover rounded-lg"
               />
               <div className="p-3 font-semibold">{name}</div>
@@ -117,6 +110,7 @@ export default function propertySliders() {
         </button>
       </section>
 
+      {/* Destinations */}
       <section className="relative">
         <h2 className="text-2xl font-bold mb-2">Explore India</h2>
         <p className="text-gray-600 mb-4">
@@ -131,9 +125,11 @@ export default function propertySliders() {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <img
+              <Image
                 src={img}
                 alt={name}
+                width={192}
+                height={160}
                 className="w-full h-40 object-cover"
               />
               <div className="p-3">
@@ -164,4 +160,3 @@ export default function propertySliders() {
     </div>
   );
 }
-

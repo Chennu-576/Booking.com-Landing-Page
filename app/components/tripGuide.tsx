@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const categories = [
   "Cultural Exploration",
@@ -12,229 +13,63 @@ const categories = [
   "Luxury Travels",
 ];
 
-
 const imagesByCategory: Record<
   string,
   { name: string; img: string; description: string }[]
 > = {
   "Cultural Exploration": [
-    {
-      name: "Jaipur",
-      img: "/all images/jaipur.jpg",
-      description: "0.1 m from Jaipur",
-    },
-    {
-      name: "New Delhi",
-      img: "/new delhi.jpg",
-      description: "236 km from Jaipur",
-    },
-    {
-      name: "Udaipur",
-      img: "/all images/udaipur.jpg",
-      description: "335 km from Jaipur",
-    },
-    {
-      name: "Amritsar",
-      img: "/all images/amritsar.jpg",
-      description: "533 km from Jaipur",
-    },
-    {
-      name: "Ahmedabad",
-      img: "/all images/Ahemdabad.jpg",
-      description: "542 km from Jaipur",
-    },
-    {
-      name: "Varanasi",
-      img: "/varnasi.jpg",
-      description: "739 km from Jaipur",
-    },
-    {
-      name: "Kolkatha",
-      img: "/all images/kolkatta.jpg",
-      description: "542 km from Jaipur",
-    },
-   
+    { name: "Jaipur", img: "/all-images/jaipur.jpg", description: "0.1 m from Jaipur" },
+    { name: "New Delhi", img: "/new-delhi.jpg", description: "236 km from Jaipur" },
+    { name: "Udaipur", img: "/all-images/udaipur.jpg", description: "335 km from Jaipur" },
+    { name: "Amritsar", img: "/all-images/amritsar.jpg", description: "533 km from Jaipur" },
+    { name: "Ahmedabad", img: "/all-images/Ahemdabad.jpg", description: "542 km from Jaipur" },
+    { name: "Varanasi", img: "/varnasi.jpg", description: "739 km from Jaipur" },
+    { name: "Kolkata", img: "/all-images/kolkatta.jpg", description: "542 km from Jaipur" },
   ],
   "Festive Experiences": [
-    {
-      name: "New Delhi",
-      img: "/new delhi.jpg",
-      description: "236 km from Jaipur",
-    },
-    {
-      name: "Ahmedabad",
-      img: "/all images/Ahemdabad.jpg",
-      description: "542 km from Jaipur",
-    },
-    {
-      name: "Mysore",
-      img: "/all images/mysore.jpg",
-      description: "542 km from Jaipur",
-    },
-    {
-      name: "Pondicherry",
-      img: "/all images/pondicherry.jpg",
-      description: "542 km from Jaipur",
-    },
-    {
-      name: "Pune",
-      img: "/all images/pune.jpg",
-      description: "542 km from Jaipur",
-    },
-    {
-      name: "Udaipur",
-      img: "/all images/udaipur.jpg",
-      description: "542 km from Jaipur",
-    },
-    {
-      name: "Jaipur",
-      img: "/all images/jaipur.jpg",
-      description: "0.1 m from Jaipur",
-    },
- ],
+    { name: "New Delhi", img: "/new-delhi.jpg", description: "236 km from Jaipur" },
+    { name: "Ahmedabad", img: "/all-images/Ahemdabad.jpg", description: "542 km from Jaipur" },
+    { name: "Mysore", img: "/all-images/mysore.jpg", description: "542 km from Jaipur" },
+    { name: "Pondicherry", img: "/all-images/pondicherry.jpg", description: "542 km from Jaipur" },
+    { name: "Pune", img: "/all-images/pune.jpg", description: "542 km from Jaipur" },
+    { name: "Udaipur", img: "/all-images/udaipur.jpg", description: "542 km from Jaipur" },
+    { name: "Jaipur", img: "/all-images/jaipur.jpg", description: "0.1 m from Jaipur" },
+  ],
   "Food & Culinary": [
-    {
-      name: "Jaipur",
-      img: "/all images/jaipur.jpg",
-      description: "0.1 m from Jaipur",
-    },
-    {
-      name: "New Delhi",
-      img: "/new delhi.jpg",
-      description: "236 km from Jaipur",
-    },
-    {
-      name: "Kolkatha",
-      img: "/all images/kolkatta.jpg",
-      description: "542 km from Jaipur",
-    },
-    {
-      name: "Lucknow",
-      img: "/all images/lucknow.jpg",
-      description: "542 km from Jaipur",
-    },
-    {
-      name: "Amritsar",
-      img: "/all images/amritsar.jpg",
-      description: "533 km from Jaipur",
-    },
-    {
-      name: "Ahmedabad",
-      img: "/all images/Ahemdabad.jpg",
-      description: "542 km from Jaipur",
-    },
-    {
-      name: "Udaipur",
-      img: "/all images/udaipur.jpg",
-      description: "542 km from Jaipur",
-    },
+    { name: "Jaipur", img: "/all-images/jaipur.jpg", description: "0.1 m from Jaipur" },
+    { name: "New Delhi", img: "/new-delhi.jpg", description: "236 km from Jaipur" },
+    { name: "Kolkata", img: "/all-images/kolkatta.jpg", description: "542 km from Jaipur" },
+    { name: "Lucknow", img: "/all-images/lucknow.jpg", description: "542 km from Jaipur" },
+    { name: "Amritsar", img: "/all-images/amritsar.jpg", description: "533 km from Jaipur" },
+    { name: "Ahmedabad", img: "/all-images/Ahemdabad.jpg", description: "542 km from Jaipur" },
+    { name: "Udaipur", img: "/all-images/udaipur.jpg", description: "542 km from Jaipur" },
   ],
   "Beach Vacations": [
-    {
-      name: "Udaipur",
-      img: "/all images/udaipur.jpg",
-      description: "542 km from Jaipur",
-    },
-    {
-      name: "Old goa",
-      img: "/all images/old goa.jpg",
-      description: "842 km from Jaipur",
-    },
-    {
-      name: "Puri",
-      img: "/all images/Puri.jpg",
-      description: "1142 km from Jaipur",
-    },
-    {
-      name: "Gokarna",
-      img: "/all images/gokarna.jpg",
-      description: "989 km from Jaipur",
-    },
-    {
-      name: "mahabalipuram",
-      img: "/all images/Mahabalipuram.jpg",
-      description: "1239 km from Jaipur",
-    },
-    {
-      name: "Pondicherry",
-      img: "/all images/pondicherry.jpg",
-      description: "1432 km from Jaipur",
-    },
-    {
-      name: "Cochin",
-      img: "/all images/cochin.jpg",
-      description: "1684 km from Jaipur",
-    },
+    { name: "Udaipur", img: "/all-images/udaipur.jpg", description: "542 km from Jaipur" },
+    { name: "Old Goa", img: "/all-images/old-goa.jpg", description: "842 km from Jaipur" },
+    { name: "Puri", img: "/all-images/puri.jpg", description: "1142 km from Jaipur" },
+    { name: "Gokarna", img: "/all-images/gokarna.jpg", description: "989 km from Jaipur" },
+    { name: "Mahabalipuram", img: "/all-images/mahabalipuram.jpg", description: "1239 km from Jaipur" },
+    { name: "Pondicherry", img: "/all-images/pondicherry.jpg", description: "1432 km from Jaipur" },
+    { name: "Cochin", img: "/all-images/cochin.jpg", description: "1684 km from Jaipur" },
   ],
   "Romantic Getaways": [
-    {
-      name: "Agra",
-      img: "/all images/agra.jpg",
-      description: "1234 km from Jaipur",
-    },
-    {
-      name: "Amritsar",
-      img: "/all images/amritsar.jpg",
-      description: "1100 km from Jaipur",
-    },
-    {
-      name: "Jailsmer",
-      img: "/all images/Jailsmer.jpg",
-      description: "1484 km from Jaipur",
-    },
-    {
-      name: "Shimla",
-      img: "/all images/shimla.jpg",
-      description: "1684 km from Jaipur",
-    },
-    {
-      name: "Rishikesh",
-      img: "/all images/rishikesh.jpg",
-      description: "1214 km from Jaipur",
-    },
-    {
-      name: "Udaipur",
-      img: "/all images/udaipur.jpg",
-      description: "1352 km from Jaipur",
-    },
+    { name: "Agra", img: "/all-images/agra.jpg", description: "1234 km from Jaipur" },
+    { name: "Amritsar", img: "/all-images/amritsar.jpg", description: "1100 km from Jaipur" },
+    { name: "Jaisalmer", img: "/all-images/jailsmer.jpg", description: "1484 km from Jaipur" },
+    { name: "Shimla", img: "/all-images/shimla.jpg", description: "1684 km from Jaipur" },
+    { name: "Rishikesh", img: "/all-images/rishikesh.jpg", description: "1214 km from Jaipur" },
+    { name: "Udaipur", img: "/all-images/udaipur.jpg", description: "1352 km from Jaipur" },
   ],
   "Luxury Travels": [
-    {
-      name: "Jaipur",
-      img: "/all images/jaipur.jpg",
-      description: "0.1 m from Jaipur",
-    },
-    {
-      name: "Agra",
-      img: "/all images/agra.jpg",
-      description: "1234 km from Jaipur",
-    },
-    {
-      name: "New Delhi",
-      img: "/new delhi.jpg",
-      description: "236 km from Jaipur",
-    },
-    {
-      name: "Mumbai",
-      img: "/mumbai.jpg",
-      description: "236 km from Jaipur",
-    },
-    {
-      name: "Old goa",
-      img: "/all images/old goa.jpg",
-      description: "842 km from Jaipur",
-    },
-    {
-      name: "Rishikesh",
-      img: "/all images/rishikesh.jpg",
-      description: "1214 km from Jaipur",
-    },
-    {
-      name: "Lucknow",
-      img: "/all images/lucknow.jpg",
-      description: "542 km from Jaipur",
-    },
- ],
+    { name: "Jaipur", img: "/all-images/jaipur.jpg", description: "0.1 m from Jaipur" },
+    { name: "Agra", img: "/all-images/agra.jpg", description: "1234 km from Jaipur" },
+    { name: "New Delhi", img: "/new-delhi.jpg", description: "236 km from Jaipur" },
+    { name: "Mumbai", img: "/mumbai.jpg", description: "236 km from Jaipur" },
+    { name: "Old Goa", img: "/all-images/old-goa.jpg", description: "842 km from Jaipur" },
+    { name: "Rishikesh", img: "/all-images/rishikesh.jpg", description: "1214 km from Jaipur" },
+    { name: "Lucknow", img: "/all-images/lucknow.jpg", description: "542 km from Jaipur" },
+  ],
 };
 
 const itemsPerPage = 6;
@@ -275,7 +110,7 @@ export default function TripGuide() {
         Pick a vibe and explore the top destinations in India
       </p>
 
-    
+      {/* Tabs */}
       <nav className="flex gap-6 mb-6">
         {categories.map((cat) => (
           <button
@@ -292,6 +127,7 @@ export default function TripGuide() {
         ))}
       </nav>
 
+      {/* Image Cards */}
       <div className="relative">
         <div className="flex space-x-6 overflow-hidden">
           {currentImages.map(({ name, img, description }) => (
@@ -301,9 +137,11 @@ export default function TripGuide() {
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <img
+              <Image
                 src={img}
                 alt={name}
+                width={192}
+                height={144}
                 className="w-full h-36 object-cover rounded-lg"
               />
               <div className="mt-2 font-semibold">{name}</div>

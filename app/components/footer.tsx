@@ -6,11 +6,20 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
 const tabs = [
-  { key: "domestic", label: "Domestic cities", items: ["Goa", "Pondicherry", "Wayanad", "Gurugram Region"] },
-  { key: "international", label: "International cities", items: ["Delhi", "Chandigarh Region", "Phuket Province", "Dubai Emirate"] },
-  { key: "regions", label: "Regions", items: ["North Goa", "Bali", "Kabini River", "Kerala"] },
-  { key: "countries", label: "Countries", items: ["South Goa", "Jim Corbett National Park", "Ranthambore National Park", "Pattaya"] },
-  { key: "places", label: "Places to stay", items: ["Coorg", "Delhi NCR", "Jammu & Kashmir", "Kaziranga National Park"] },
+  { key: "domestic", label: "Domestic cities", items: ["Srinagar hotels", "Mumbai hotels", "Bangalore hotels", "Ooty hotels", "Jaipur hotels", "Hyderabad hotels", "Puri hotels", "Pondicherry hotels", 
+   
+   
+
+"Lonavala hotels", "Rishīkesh hotels", "Ayodhya hotels", "Mysore hotels", "Cochin hotels", "Pune hotels", "New Delhi hotels", "Alleppey hotels", "Shimla hotels", "Gokarna hotels", "Udaipur hotels", "Kolkata hotels", "Mussoorie hotels"] },
+  { key: "international", label: "International cities", items: ["Dubai hotels", "Singapore hotels", "Singapore", "Bangkok hotels", "Thailand", "Paris hotels", "France", "London hotels", "United Kingdom", "Amsterdam hotels"
+  ,"Netherlands", "Colombo hotels", "Sri Lanka", "Abu Dhabi hotels", "United Arab Emirates", "New York hotels", "United States", "Kuala Lumpur hotels"] },
+  { key: "regions", label: "Regions", items: ["Goa", "Delhi", "North Goa", "South Goa", "Coorg", "Pondicherry", "Chandigarh Region", "Bali", "Jim Corbett National Park", "Delhi NCR", "Wayanad", "Phuket Province", "Kabini River"
+  ,"Ranthambore National Park", "Jammu & Kashmir",, "Gurugram Region", "Dubai Emirate", "Kerala", "Pattaya", "Kaziranga National Park"
+] },
+  { key: "countries", label: "Countries", items: ["France", "Italy", "Japan", "Singapore", "Australia", "Switzerland", "Spain", "Goa", "Delhi", "North Goa", "South Goa", "Coorg", "Pondicherry", "Chandigarh" ] },
+  { key: "places", label: "Places to stay", items: ["Homestays", "Resorts", "Hostels", "Cheap hotels", "Beach Hotels", "Villas", "5-Star Hotels", "Serviced apartments", "Pet-Friendly Hotels", "Family Hotels", "Luxury Hotels", "Guest Houses"
+,"Apartments", "Boats", "3-Star Hotels"
+] },
 ];
 
 const quickLinks = [
@@ -154,7 +163,7 @@ export default function Footer() {
 
       <div className="mx-auto max-w-6xl px-4 pt-6 flex items-center gap-0">
            <Image
-            src="/all images/india logo.png"
+            src="/all-images/india-logo.png"
             alt="India Flag"
             width={24}
             height={24}

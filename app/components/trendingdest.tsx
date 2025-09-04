@@ -18,7 +18,7 @@ export default function trendingdest() {
             className="bg-white rounded-xl shadow-lg p-5 flex items-center gap-4 flex-1"
           >
             <Image
-              src="/lp img2.jpeg"
+              src="/lp-img2.jpeg"
               alt="Quick escape"
               width={100}
               height={80}
@@ -42,7 +42,7 @@ export default function trendingdest() {
           >
             
             <Image
-              src="/lp img1.jpeg"
+              src="/lp-img1.jpeg"
               alt="Vacation home"
               fill
               className="object-cover"
@@ -82,7 +82,7 @@ export default function trendingdest() {
             className="relative rounded-xl overflow-hidden shadow-lg h-72"
           >
             <Image
-              src="/new delhi.jpg"
+              src="/new-delhi.jpg"
               alt="New Delhi"
               fill
               className="object-cover"
@@ -91,7 +91,7 @@ export default function trendingdest() {
             <div className="absolute top-0 left-0 p-4 text-white text-xl font-bold flex items-center">
               New Delhi
               <Image
-                src="/all images/india logo.png"
+                src="/all-images/india-logo.png"
                 alt="India flag"
                 width={28}
                 height={18}
@@ -115,7 +115,7 @@ export default function trendingdest() {
             <div className="absolute top-0 left-0 p-4 text-white text-xl font-bold flex items-center">
               Bangalore
               <Image
-                src="/all images/india logo.png"
+                src="/all-images/india-logo.png"
                 alt="India flag"
                 width={28}
                 height={18}
@@ -141,7 +141,7 @@ export default function trendingdest() {
             <div className="absolute top-0 left-0 p-4 text-white text-xl font-bold flex items-center">
               Mumbai
               <Image
-                src="/all images/india logo.png"
+                src="/all-images/india-logo.png"
                 alt="India flag"
                 width={28}
                 height={18}
@@ -165,7 +165,7 @@ export default function trendingdest() {
             <div className="absolute top-0 left-0 p-4 text-white text-xl font-bold flex items-center">
               Chennai
               <Image
-                src="/all images/india logo.png"
+                src="/all-images/india-logo.png"
                 alt="India flag"
                 width={28}
                 height={18}
@@ -189,7 +189,7 @@ export default function trendingdest() {
             <div className="absolute top-0 left-0 p-4 text-white text-xl font-bold flex items-center">
               Varanasi
               <Image
-                src="/all images/india logo.png"
+                src="/all-images/india-logo.png"
                 alt="India flag"
                 width={28}
                 height={18}
