@@ -101,11 +101,11 @@ export default function HeroSection() {
         >
           <label className="flex cursor-pointer items-center gap-2">
             <input type="checkbox" className="h-4 w-4 accent-[#0071c2]" />
-            I'm looking for an entire home or apartment
+            Im looking for an entire home or apartment
           </label>
           <label className="flex cursor-pointer items-center gap-2">
             <input type="checkbox" className="h-4 w-4 accent-[#0071c2]" />
-            I'm looking for flights
+            Im looking for flights
           </label>
         </motion.div>
       </div>
